@@ -20,31 +20,32 @@ while(resp==1){
     Console.WriteLine("Seleccione operación: ");
     result = int.TryParse(Console.ReadLine(), out op);
     if(result && (op>0 && op<6)){
-        Console.WriteLine("Ingrese un nùmero: ");
-        if(double.TryParse(Console.ReadLine(),out num)){
-            switch (op){
-                case 1: 
-                    valor.Sumar(num);
-                    Console.WriteLine("La suma es: "+ valor.Resultado);
-                    break;
-                case 2: 
-                    valor.Restar(num);
-                    Console.WriteLine("La resta es: "+ valor.Resultado);
-                    break;
-                case 3: 
-                    valor.Multiplicar(num);
-                    Console.WriteLine("La multiplicación es: "+ valor.Resultado);
-                    break;
-                case 4: 
-                    valor.Dividir(num);
-                    Console.WriteLine("La división es: "+ valor.Resultado);
-                    break;
-                case 5: 
-                    valor.Limpiar();
-                    break; 
+        if(op!=5){
+            Console.WriteLine("Ingrese un nùmero: ");
+            if(double.TryParse(Console.ReadLine(),out num)){
+                switch (op){
+                    case 1: 
+                        valor.Sumar(num);
+                        Console.WriteLine("La suma es: "+ valor.Resultado);
+                        break;
+                    case 2: 
+                        valor.Restar(num);
+                        Console.WriteLine("La resta es: "+ valor.Resultado);
+                        break;
+                    case 3: 
+                        valor.Multiplicar(num);
+                        Console.WriteLine("La multiplicación es: "+ valor.Resultado);
+                        break;
+                    case 4: 
+                        valor.Dividir(num);
+                        Console.WriteLine("La división es: "+ valor.Resultado);
+                        break;
+                }
+            }else{
+                Console.WriteLine("No es número");
             }
         }else{
-            Console.WriteLine("No es número");
+            valor.Limpiar();
         }
     }else{
         Console.WriteLine("No es una operación válida");
